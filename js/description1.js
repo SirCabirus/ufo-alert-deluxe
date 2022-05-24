@@ -14,11 +14,13 @@ const deInstruction =
   "den linken Bildrand erreichen, ist das Spiel vorbei. "; 
 
   const enRocket =
-  "This is your spaceship. Control the spaceship with the cursor up and down keys.  " +
-  "Use the spacebar to shoot at the UFOs. Avoid continuous fire so that your laser doesn't overheat and fail.";
+  "This is your spaceship. Control the spaceship with the cursor keys.  " +
+  "Use the spacebar to shoot at the UFOs. Avoid continuous fire so that your laser doesn't overheat and fail. " +
+  "CTRL+spacebar fires the tail gun. The tail gun cannot overheat.";
  const deRocket =
-   "Dies ist dein Raumschiff. Steuere das Raumschiff mit den Cursor-Tasten Pfeil-hoch und Pfeil-runter. " + 
-   "Mit der Leertaste kannst du auf die UFOs schießen. Vermeide Dauerfeuer, damit sich Dein Laser nicht überhitzt und versagt.";
+   "Dies ist dein Raumschiff. Steuere das Raumschiff mit den Cursor-Tasten. " + 
+   "Mit der Leertaste kannst du auf die UFOs schießen. Vermeide Dauerfeuer, damit sich Dein Laser nicht überhitzt und versagt. " +
+   "Mit STRG+Leertaste wird die Heckkanone abgefeuert. Die Heckkanone kann nicht überhitzen.";
  
    const enMedoRocket =
    "When you have fought well for some time, a supply spaceship will appear. Touch it with your spaceship to " +
