@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UFO Alarm</title>
+    <link rel="stylesheet" href="css/ufoalert.css" type="text/css" />
+    <script src="js/ufoalert.js"></script>
+    <script src="js/howler.core.js"></script>
+  </head>
+
+  <body onload="startGame()">
+    <div class="center">
+      <div class="drama">
+        <img src="img/title.png" alt="UFO Alarm" width="391" height="88" />
+      </div>
+
+      <canvas id="canvas" width="1024" height="540"> </canvas>
+
+      <div class="textbox">
+        <p id="status"></p>
+      </div>
+
+      <div class="center2">
+        <p class="start">
+          <button class="button-1" onclick="location.href='./index2.html'" type="button" id="backButton"></button>
+          <button class="button-1" onclick="location.href='./ufoalert.html'" type="button" id="startButton"></button>
+          <button class="button-1" onclick="playMusic()" type="button" id="musicButton"></button>
+        </p>
+      </div>
+  
+    </div>
+  </body>
+</html>

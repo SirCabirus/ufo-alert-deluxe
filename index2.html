@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UFO Alarm</title>
+    <link rel="stylesheet" href="./css/ufoalert.css" type="text/css" />
+    <script src="./js/description2.js"></script>
+  </head>
+
+  <body onload="description()">
+    <div class="center">
+      <div class="drama">
+        <img src="./img/title.png" alt="UFO Alarm" width="391" height="88" />
+      </div>
+    </div>
+    <div class="center">
+      <table class="tdc">
+        <tr>
+          <td><img src="./img/ufo.png" alt="Exploration UFO" width="100" height="40" /></td>
+          <td><p class="instruction" id="ufo"></p></td>
+        </tr>
+        <tr>
+          <td><img src="./img/ufoSpeed.png" alt="Highspeed UFO" width="100" height="40" /></td>
+          <td><p class="instruction" id="speedUfo"></p></td>
+        </tr>
+        <tr>
+          <td>
+            <img src="./img/SpaceStation0.png" alt="Command Center UFO" width="292" height="108" />
+            <img src="./img/missile.png" alt="Missile" width="100" height="35" />
+          </td>
+          <td><p class="instruction" id="cmdUfo"></p></td>
+        </tr>
+      </table>
+    </div>
+    <div class="space">
+      <p class="instructionCenter" id="conclusion"></p>
+    </div>
+    <div class="center">
+      <p class="start">
+        <button class="button-1" onclick="location.href='./index.html'" type="button" id="backButton"></button>
+        <button class="button-1" onclick="location.href='./ufoalert.html'" type="button" id="startButton"></button>
+      </p>
+    </div>
+  </body>
+</html>
