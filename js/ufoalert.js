@@ -54,6 +54,7 @@ let checkEndgameHandle;
 // damit Soundeffekte parallel abgespielt werden können
 // siehe https://howlerjs.com/
 let shootsnd;
+let rshootsnd;
 let explode;
 let rockethit;
 let medoRockethit;
@@ -284,6 +285,8 @@ function startGame() {
   // Soundeffekte initialisieren
   shootsnd = new Howl({ src: ["snd/shoot.mp3"], autoplay: true, html5: true });
 
+  rshootsnd = new Howl({ src: ["snd/rshoot.mp3"], autoplay: true, html5: true });
+
   xBombSnd = new Howl({
     src: ["snd/xBomb.mp3"],
     autoplay: true,
@@ -335,8 +338,7 @@ function startGame() {
   createSpaceStationHandle = setInterval(createSpaceStation, createSpaceStationIntervall);
   createMedoRocketHandle = setInterval(createMedoRocket, createMedoRocketIntervall);
   createUfoHandle = setInterval(createUfos, createUfoIntervall);
-  // TODO checkCollisionUfoHandle = setInterval(checkCollisionUfo, checkCollisionUfoIntervall);
-  checkCollisionUfoHandle = setInterval(checkCollisionUfo, 10);
+  checkCollisionUfoHandle = setInterval(checkCollisionUfo, checkCollisionUfoIntervall);
   checkCollisionSpaceStationHandle = setInterval(checkCollisionSpaceStation, checkCollisionSpaceStationIntervall);
   checkCollisionMedoRocketHandle = setInterval(checkCollisionMedoRocket, checkCollisionMedoRocketIntervall);
   checkForShootHandle = setInterval(checkForShoot, checkForShootIntervall);
@@ -898,7 +900,7 @@ function checkForShoot() {
     // Schuss im Schuss-Array speichern
     rearshots.push(shot);
     
-    shootsnd.play();
+    rshootsnd.play();
   }
 }
 
