@@ -1,7 +1,7 @@
 /************************************************************/
 /*                       UFO Alert                          */
 /*                                                          */
-/* Version 25 vom 22.05.2022                                */
+/* Version 26 vom 20.06.2022                                */
 /*                                                          */
 /* Dies Spiel ist nach dem JavaScript Tutorial für Anfänger */
 /* von Junus Ergin entstanden - siehe:                      */
@@ -66,13 +66,13 @@ let ufoEsacped;
 let gameMusic;
 let music = false;
 
-// TODO Variablen für die Tastatureingaben
+// Variablen für die Tastatureingaben
 let KEY_SPACE = false; // die Leertaste
 let KEY_UP = false; // die 'Peil nach oben' Cursor-Taste
 let KEY_DOWN = false; // die 'Pfeil nach unten' Cursor-Taste
-let KEY_RIGHT = false;
-let KEY_LEFT = false;
-let KEY_CONTROL = false;
+let KEY_RIGHT = false; // die 'Pfeil nach rechts' Cursor-Taste
+let KEY_LEFT = false; // die 'Pfeil nach links' Cursor-Taste
+let KEY_CONTROL = false; // die STRG-Taste
 
 // Variablen zur Ausgabe des Status
 let statusLine;
@@ -90,7 +90,7 @@ let collision = false;
 
 // aktuelle Anzahl Raketen
 let rockets = 3;
-// TODO Vertikale und horizontale Geschwindigkeit der Rakete
+// Vertikale und horizontale Geschwindigkeit der Rakete
 const rocketSpeed = 8;
 
 // aktuelle Anzahl X-Bombe
@@ -158,7 +158,6 @@ let gameOver = false;
 /**************************************************************************/
 // Rakete / Raumschiff
 let rocket = {
-  // TODO x: 50,
   x: 50,
   y: 200,
   width: 87,
@@ -184,7 +183,7 @@ let ufos = [];
 // Array für Schüsse von Rakete
 let shots = [];
 
-// TODO Array für Schüsse vom Heck der Rakete
+// Array für Schüsse vom Heck der Rakete
 let rearshots = [];
 
 /**********************************/
@@ -477,16 +476,15 @@ function checkCollisionUfo() {
       }
     });
 
-    // TODO Kontrollieren, ob Schüsse vom Heck der Rakete ein Ufo treffen
+    // Kontrollieren, ob Schüsse vom Heck der Rakete ein Ufo treffen
     rearshots.forEach(function (shot) {
       if (
-        shot.x + shot.width > ufo.x &&
+        shot.x < ufo.x + ufo.width &&
         shot.y + shot.height > ufo.y &&
-        shot.x < ufo.x &&
+        shot.x > ufo.x &&
         shot.y < ufo.y + ufo.height
       ) {
         // den Treffer-Schuss aus dem Array löschen
-        console.log("Heck-Treffer!");
         rearshots = rearshots.filter((u) => u != shot);
 
         // Ufo durch Explosions-Bild ersetzen
@@ -593,6 +591,64 @@ function checkCollisionSpaceStation() {
         }
       }
     });
+
+    // Kontrollieren, ob Schüsse vom Heck der Rakete Raumstation treffen
+    rearshots.forEach(function (shot) {
+      if (
+        shot.x < spaceStation.x + spaceStation.width &&
+        shot.y + shot.height > spaceStation.y &&
+        shot.x > spaceStation.x &&
+        shot.y < spaceStation.y + spaceStation.height
+      ) {
+        // den Treffer-Schuss aus dem Array löschen
+        rearshots = rearshots.filter((u) => u != shot);
+
+        if (spaceStation.hits < spaceStationMaxHits) {
+          // Treffer der Raumstation erhöhen
+          spaceStation.hits += 1;
+
+          // Beschädigung der Raumstation anzeigen und diese gegebenenfalls zerstören
+          switch (spaceStation.hits) {
+            case 1:
+              spaceStation.img.src = "img/SpaceStation1.png";
+              explode.play();
+              break;
+            case 2:
+              spaceStation.img.src = "img/SpaceStation2.png";
+              explode.play();
+              break;
+            case 3:
+              spaceStation.img.src = "img/SpaceStation3.png";
+              explode.play();
+              break;
+            case 4:
+              spaceStation.img.src = "img/SpaceStation4.png";
+              explode.play();
+              break;
+            case 5:
+              spaceStation.img.src = "img/SpaceStation5.png";
+              explode.play();
+              break;
+            case 6:
+              // Raumstation durch Explosions-Bild ersetzen
+              spaceStation.img.src = "img/explosion.png";
+
+              // Sound abspielen
+              explode.play();
+
+              score += 100;
+
+              setTimeout(() => {
+                spaceStationActive = false;
+              }, 100);
+              break;
+            default:
+              break;
+          }
+        }
+      }
+    });
+
   }
 
   // Kontrollieren, ob Missile mit Rakete kollidiert
@@ -862,7 +918,7 @@ function createUfos() {
 function checkForShoot() {
   if (collision) return;
 
-  // TODO
+  // Schuss vom Bug der Rakete
   if (KEY_SPACE && !KEY_CONTROL) {
     // Laser wird nur ausgelöst, wenn Laser Status > 0
     if (laserCount > 0) {
@@ -885,6 +941,7 @@ function checkForShoot() {
     }
   }
 
+  // Schuss vom Heck der Rakete
   if (KEY_SPACE && KEY_CONTROL) {
     let shot = {
       x: rocket.x,
@@ -909,11 +966,6 @@ function checkForShoot() {
 /*                                                       */
 /*********************************************************/
 function update() {
-  // TODO
-  if (KEY_SPACE && KEY_CONTROL) {
-    console.log("Heck-Laser wurde gefeuert!");
-  }
-
   if (collision == false) {
     // Rakete auf der Y-Achse bewegen
     if (KEY_UP) {
@@ -1068,7 +1120,7 @@ function update() {
 
     }); // Ende Schüsse
 
-    // TODO alle Schüsse vom Heck der Rakete nach links bewegen
+    // alle Schüsse vom Heck der Rakete nach links bewegen
     rearshots.forEach(function (shot) {
       shot.x -= 18;
 
