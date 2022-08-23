@@ -1,6 +1,22 @@
-/* Google Font einbinden                  */
-/* Auswahl über https://fonts.google.com/ */
-@import url('https://fonts.googleapis.com/css2?family=Goldman&display=swap');
+/* goldman-regular - latin */
+@font-face {
+  font-family: 'Goldman';
+  /* font-style: normal; */
+  font-weight: 400;
+  src: url('../fonts/goldman-v15-latin-regular.eot');
+  /* IE9 Compat Modes */
+  src: local(''),
+    url('../fonts/goldman-v15-latin-regular.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */
+    url('../fonts/goldman-v15-latin-regular.woff2') format('woff2'),
+    /* Super Modern Browsers */
+    url('../fonts/goldman-v15-latin-regular.woff') format('woff'),
+    /* Modern Browsers */
+    url('../fonts/goldman-v15-latin-regular.ttf') format('truetype'),
+    /* Safari, Android, iOS */
+    url('../fonts/goldman-v15-latin-regular.svg#Goldman') format('svg');
+  /* Legacy iOS */
+}
 
 body {
     background-color:rgb(47, 134, 168);
