@@ -11,6 +11,10 @@
 /* motiviert hat dieses Spiel zu schreiben, welches         */
 /* zahlreiche Änderungen und Erweiterungen enthält.         */
 /*                                                          */
+/* Das Logo Ufo Alarm wurde aus dem Film                    */
+/* 'Shaun das Schaf UFO-Alarm' entlehnt.                    */
+/*                                                          */
+/*                                                          */
 /* Frank Wolter                                             */
 /* https://www.sircabirus.com/                              */
 /*                                                          */
