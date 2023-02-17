@@ -1,4 +1,6 @@
-# ufo-alert
+# UFO Alarm Deluxe aka UFO Alert Deluxe
+
+![UFO Alarm](/img/Title.jpg)
 A retro style arcade game written in JavaScript. In an arcade game, skill is often the deciding factor, 
 I have tried to make the game so that tactics also play an important role.
 
