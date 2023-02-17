@@ -6,7 +6,7 @@ This is the DeLuxe version of UFOAlert. New is that the spaceship can also be mo
 
 The game is still in development. You can play the game here
 
-https://sircabirus.github.io/ufo-alert-deluxe/ufoalert.html
+https://sircabirus.github.io/ufo-alert-deluxe/
 
 Ein Arcade-Spiel im Retro-Stil, geschrieben in JavaScript. In einem Arcade-Spiel ist oft die Geschicklichkeit der entscheidende Faktor, 
 ich habe versucht, das Spiel so zu gestalten dass auch die Taktik eine wichtige Rolle spielt.
@@ -16,4 +16,4 @@ vom Heck abgeben.
 
 Das Spiel ist noch in der Entwicklung. Du kannst das Spiel hier aufrufen
 
-https://sircabirus.github.io/ufo-alert-deluxe/ufoalert.html
+https://sircabirus.github.io/ufo-alert-deluxe/
